@@ -1,10 +1,10 @@
-public class StateData {
+public class App {
 
     private String stateName;
     private double overdoseDeaths;
     private double firearmDeaths;
 
-    public StateData(String stateName, double overdoseDeaths, double firearmDeaths) {
+    public App(String stateName, double overdoseDeaths, double firearmDeaths) {
         this.stateName = stateName;
         this.overdoseDeaths = overdoseDeaths;
         this.firearmDeaths = firearmDeaths;

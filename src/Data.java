@@ -9,7 +9,7 @@ public class App {
 
         File file = new File("Data.csv");
 
-        ArrayList<StateData> dataList = new ArrayList<>();
+        ArrayList<App> dataList = new ArrayList<>();
 
         try {
             Scanner scanner = new Scanner(file);
@@ -26,7 +26,7 @@ public class App {
                 double firearmDeaths = Double.parseDouble(parts[4]);
                 double overdoseDeaths = Double.parseDouble(parts[6]);
 
-                StateData state = new StateData(stateName, overdoseDeaths, firearmDeaths);
+                App state = new App(stateName, overdoseDeaths, firearmDeaths);
                 dataList.add(state);
             }
 
@@ -51,9 +51,9 @@ public class App {
         compareRates(dataList);
     }
 
-    public static double findMaxFirearm(ArrayList<StateData> list) {
+    public static double findMaxFirearm(ArrayList<App> list) {
         double max = list.get(0).getFirearmDeaths();
-        for (StateData s : list) {
+        for (App s : list) {
             if (s.getFirearmDeaths() > max) {
                 max = s.getFirearmDeaths();
             }
@@ -61,9 +61,9 @@ public class App {
         return max;
     }
 
-    public static double findMinFirearm(ArrayList<StateData> list) {
+    public static double findMinFirearm(ArrayList<App> list) {
         double min = list.get(0).getFirearmDeaths();
-        for (StateData s : list) {
+        for (App s : list) {
             if (s.getFirearmDeaths() < min) {
                 min = s.getFirearmDeaths();
             }
@@ -71,17 +71,17 @@ public class App {
         return min;
     }
 
-    public static double averageFirearm(ArrayList<StateData> list) {
+    public static double averageFirearm(ArrayList<App> list) {
         double total = 0;
-        for (StateData s : list) {
+        for (App s : list) {
             total += s.getFirearmDeaths();
         }
         return total / list.size();
     }
 
-    public static double findMaxOverdose(ArrayList<StateData> list) {
+    public static double findMaxOverdose(ArrayList<App> list) {
         double max = list.get(0).getOverdoseDeaths();
-        for (StateData s : list) {
+        for (App s : list) {
             if (s.getOverdoseDeaths() > max) {
                 max = s.getOverdoseDeaths();
             }
@@ -89,9 +89,9 @@ public class App {
         return max;
     }
 
-    public static double findMinOverdose(ArrayList<StateData> list) {
+    public static double findMinOverdose(ArrayList<App> list) {
         double min = list.get(0).getOverdoseDeaths();
-        for (StateData s : list) {
+        for (App s : list) {
             if (s.getOverdoseDeaths() < min) {
                 min = s.getOverdoseDeaths();
             }
@@ -99,16 +99,16 @@ public class App {
         return min;
     }
 
-    public static double averageOverdose(ArrayList<StateData> list) {
+    public static double averageOverdose(ArrayList<App> list) {
         double total = 0;
-        for (StateData s : list) {
+        for (App s : list) {
             total += s.getOverdoseDeaths();
         }
         return total / list.size();
     }
 
-    public static void compareRates(ArrayList<StateData> list) {
-        for (StateData s : list) {
+    public static void compareRates(ArrayList<App> list) {
+        for (App s : list) {
             if (s.getOverdoseDeaths() > s.getFirearmDeaths()) {
                 System.out.println(s.getStateName());
             }
